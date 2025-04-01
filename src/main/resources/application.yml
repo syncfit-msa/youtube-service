@@ -1,0 +1,15 @@
+spring:
+  config:
+    import: optional:configserver:http://${CONFIG_HOST:127.0.0.1}:${CONFIG_PORT:8888}/
+  cloud:
+    config:
+      name: youtube-service
+  application:
+    name: youtube-service
+  profiles:
+    active: local
+    include:
+      - openfeign
+      - eureka
+      - actuator
+      - api
